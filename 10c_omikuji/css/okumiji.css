@@ -84,6 +84,9 @@ header {
 #btn1:hover {
   animation: shaking 0, 3s infinite;
 }
+#btn99:hover {
+  background: linear-gradient(#da70d6 0%, pink 100%);
+}
 
 @keyframes shaking {
   0% {
