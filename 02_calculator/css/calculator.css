@@ -1,30 +1,38 @@
 @charset "utf-8";
 
 html {
-    /* ブラウザのデフォルトが16px                        */
-    /* デフォルトの16pxの代わりに1emが10pxになるように調整 */
-    font-size: 62.5%;
+  /* ブラウザのデフォルトが16px                        */
+  /* デフォルトの16pxの代わりに1emが10pxになるように調整 */
+  font-size: 62.5%;
 }
 
 /* 「*」はユニバーサルセレクタ（すべての要素を対象にするセレクタ）でbox-sizing: border-box;を指定 */
 /* この指定（してい）はborderとpaddingをボックスサイズ（widthとheight）の中に含めて算出するので、スタイリングがしやすい*/
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
   /* line-height: 1.5; */
   color: rgb(73, 72, 72);
-  font-size: 1.6em; /* 16px */
+  font-size: 1.6em;
+  /* 16px */
   font-family: "Helvetica Neue",
-  Arial,
-  "Hiragino Kaku Gothic ProN",
-  "Hiragino Sans",
-  Meiryo,
-  sans-serif;
-  background: #EEEEEE;
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+  background-image: url(../img/Hình\ ảnh\ 1.jpg);
+  overflow: hidden;
+  background-size: cover;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
   overflow: hidden;
 }
+
 /*******************************************************/
 /* ヘッダー                                             */
 /*******************************************************/
@@ -33,25 +41,33 @@ h1 {
   color: rgb(26, 212, 212);
   text-align: center;
 }
+
 /*******************************************************/
 /* 計算機全体                                           */
 /*******************************************************/
 .wrapper {
-  position: relative;/*相対位置*/
-  max-width: 100vw;  /*すべての要素をbox-sizing:border-boxとしているので全て含めてmin-width:100vwに*/
-  min-height: 100vh; /*すべての要素をbox-sizing:border-boxとしているので全て含めてmin-height:100vhに*/
+  position: relative;
+  /*相対位置*/
+  max-width: 100vw;
+  /*すべての要素をbox-sizing:border-boxとしているので全て含めてmin-width:100vwに*/
+  min-height: 100vh;
+  /*すべての要素をbox-sizing:border-boxとしているので全て含めてmin-height:100vhに*/
   margin: 0;
   padding: 0;
-  padding-bottom: 23px;/*footer+paddingの高さ*/
+  padding-bottom: 23px;
+  /*footer+paddingの高さ*/
   text-align: center;
 }
 
 .f-container {
   display: flex;
   flex-direction: row;
-  justify-content:center; /*アイテムを上下中央揃えで配置*/
-  align-items: center; /*アイテムを上下中央揃えで配置*/
+  justify-content: center;
+  /*アイテムを上下中央揃えで配置*/
+  align-items: center;
+  /*アイテムを上下中央揃えで配置*/
 }
+
 .f-item {
   margin: 0;
   padding: 0;
@@ -63,12 +79,12 @@ input[type=number] {
   width: 3em;
   line-height: 1.5em;
   font-size: 2em;
-  text-align: left;
+  text-align: center;
   vertical-align: middle;
   border: solid 0.01em grey;
 }
 
-#calcType  {
+#calcType {
   margin: 0.05em;
   padding: 0;
   width: 3em;
@@ -88,6 +104,7 @@ input[type=number] {
   text-align: center;
   vertical-align: middle;
 }
+
 /* 「＝」をボタンにする */
 #btn99 {
   padding: 0.5em;
@@ -99,7 +116,11 @@ input[type=number] {
   /*カーソルをポインターの形（かたち）にする*/
 }
 
-#btn1 {
+#btn99:hover {
+  background: linear-gradient(#da70d6 0%, pink 100%);
+}
+
+#btn {
   position: relative;
   margin: 0px auto;
   width: 280px;
@@ -111,28 +132,12 @@ input[type=number] {
   user-select: none;
 }
 
-#btn1:hover {
+#btn:hover {
   animation: shaking 0, 3s infinite;
 }
-/* #btnEqual {
-  margin: 0.05em;
-  padding: 0;
-  width: 2em;
-  line-height: 1.5em;
-  font-size: 2em;
-  color: whitesmoke;
-  border-radius: 0.3em;
-  background: rgb(26, 212, 212);
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  outline: none;
-}
-#btnEqual:active {
-  transform: translateY(4px);
-} */
 
-#result  {
+
+#result {
   margin: 0.05em;
   padding: 0;
   width: 3em;
@@ -141,12 +146,15 @@ input[type=number] {
   text-align: left;
   vertical-align: middle;
 }
+
 /*******************************************************/
 /* フッター                                             */
 /*******************************************************/
-footer> p {
-  position: absolute;/*←絶対位置*/
-  bottom: 15px; /*下に固定*/
+footer>p {
+  position: absolute;
+  /*←絶対位置*/
+  bottom: 15px;
+  /*下に固定*/
   width: 100%;
   margin: 0px;
   padding: 1px;
@@ -156,17 +164,25 @@ footer> p {
   background: rgba(1, 24, 31, 0.7);
 }
 
-.mgn-01{
+.mgn-01 {
   margin-left: 1em;
   margin-right: 1em;
 }
+
 /*******************************************************/
 /* レスポンシブ対応　メディアクエリを使ってCSSを切り替える */
 /* https://www.design-memo.com/coding/css-media-queries */
 /* mobileのときのスタイル */
 /*******************************************************/
 @media screen and (max-width: 480px) {
-	.f-item {
-	font-size:70%;
-	}
+  .f-item {
+    font-size: 70%;
+
+  }
+
+  body {
+    background-position: 50% 0%;
+    background-size: auto 1000px;
+    overflow: hidden;
+  }
 }
