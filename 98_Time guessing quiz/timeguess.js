@@ -1,7 +1,7 @@
 "use strict";
 
 
-const timer = document.getElementById("time");
+const timer = document.getElementById("timer");
 const start = document.getElementById("start");
 const stop = document.getElementById("stop");
 const reset = document.getElementById("reset");
@@ -60,7 +60,7 @@ function countUp() {
   const ms = String(d.getMilliseconds()).padStart(3, "0");
   /* 描画 */
   timer.textContent = `${m}:${s}.${ms}`;
-  document.getElementById("time");
+  // document.getElementById("time");
 
 
   timeoutid = setTimeout(() => {
@@ -81,7 +81,7 @@ function setButtonStateInitial() {
 
 // 状態:タイマー動作中
 function setButtonStateRunning() {
-  timer.classList.add("timer-fontColor_hidden"); //時間を見えなくする
+  //timer.classList.add("timer-fontColor_hidden"); //時間を見えなくする
   start.classList.add("js-inactive");   // 非活性
   stop.classList.remove("js-inactive");  // 活性
   reset.classList.add("js-inactive");   // 非活性
@@ -94,7 +94,7 @@ function setButtonStateRunning() {
 function setButtonStateStopped() {
   timer.classList.remove("timer-fontColor_hidden"); //時間を見えるようにする
   timer.classList.add("timer_appear"); //時間をゆっくり表示
-  start.classList.add("js-inactive"); // 活性
+  start.classList.remove("js-inactive"); // 活性
   stop.classList.add("js-inactive");    // 非活性
   reset.classList.remove("js-inactive"); // 活性
   start.classList.add("js-unclickable");
