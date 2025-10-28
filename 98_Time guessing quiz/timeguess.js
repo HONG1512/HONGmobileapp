@@ -12,7 +12,7 @@ let stopTime = 0;    // Stopまでの経過時間
 
 
 // ボタンを"初期"状態とする
-setButtonStateInitial();
+setButtonStateInitial()
 
 ////////////////////////
 // Startボタンクリック
@@ -21,7 +21,7 @@ start.addEventListener("click",
   function() {
     // ボタンをタイマー"動作中"状態とする
     setButtonStateRunning();
-    startTime = Date.now()-stopTime;
+    startTime = Date.now();
     countUp();
   },false
 );
@@ -38,17 +38,16 @@ stop.addEventListener("click",
   },false
 );
 
-
 ////////////////////////
 // Resetボタンクリック
 ////////////////////////
 reset.addEventListener("click",
   function() {
     // ボタンを"初期"状態とする
-    setButtonStateInitial();
+    setButtonStateInitial()
     timer.textContent = "00:00.000";
     stopTime = 0;
-  },false
+  }
 );
 
 
@@ -60,8 +59,6 @@ function countUp() {
   const ms = String(d.getMilliseconds()).padStart(3, "0");
   /* 描画 */
   timer.textContent = `${m}:${s}.${ms}`;
-  // document.getElementById("time");
-
 
   timeoutid = setTimeout(() => {
     //再帰呼び出し
@@ -93,8 +90,8 @@ function setButtonStateRunning() {
 // 状態:タイマー停止中
 function setButtonStateStopped() {
   timer.classList.remove("timer-fontColor_hidden"); //時間を見えるようにする
-  timer.classList.add("timer_appear"); //時間をゆっくり表示
-  start.classList.remove("js-inactive"); // 活性
+  timer.classList.add(".timer_appear"); //時間をゆっくり表示
+  start.classList.add("js-inactive"); // 活性
   stop.classList.add("js-inactive");    // 非活性
   reset.classList.remove("js-inactive"); // 活性
   start.classList.add("js-unclickable");

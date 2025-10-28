@@ -110,18 +110,6 @@ i {
   user-select: none;
   cursor: pointer; /*カーソルをポインターの形（かたち）にする*/
 }
-#btn99 {
-    padding: 0.5em;
-    border-radius: 0.3em;
-    color: whitesmoke;
-    font-size: 1.5em;
-    background: rgb(26, 212, 212);
-    cursor: pointer;
-    /*カーソルをポインターの形（かたち）にする*/
-}
-#btn99:hover {
-  background: linear-gradient(#da70d6 0%, pink 100%);
-}
 .js-inactive {
   opacity: 0.6;
 }
@@ -174,4 +162,15 @@ footer> p {
   font-size: 1.5em;
   background: rgb(26, 212, 212);
   cursor: pointer; /*カーソルをポインターの形（かたち）にする*/
+}#btn99 {
+  padding: 0.5em;
+  border-radius: 0.3em;
+  color: whitesmoke;
+  font-size: 1.5em;
+  background: rgb(26, 212, 212);
+  cursor: pointer;
+  /*カーソルをポインターの形（かたち）にする*/
+}
+#btn99:hover {
+  background: linear-gradient(#da70d6 0%, pink 100%);
 }
