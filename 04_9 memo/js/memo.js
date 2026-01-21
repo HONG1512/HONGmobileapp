@@ -67,7 +67,7 @@ function dellLocalStorage() {
     del.addEventListener("click",
         function (e) {
             e.preventDefault();
-            let chkbox1 = document.getElementById("chkbox1");
+            const chkbox1 = document.getElementsByName("chkbox1");
             const table1 = document.getElementById("table1");
             let w_cnt = 0;
             w_cnt = selectCheckBox("del");
@@ -79,7 +79,7 @@ function dellLocalStorage() {
                     type: "question",
                     showCancelButton: true
                 }).then(function (result) {
-                    if (result.value) {
+                    if (result.value === true) {
                         for (let i = 0; i < chkbox1.length; i++) {
                             if (chkbox1[i].checked) {
                                 localStorage.removeItem(table1.rows[i + 1].cells[1].firstChild.data);
@@ -91,7 +91,7 @@ function dellLocalStorage() {
                             title: "Meno app",
                             html: w_msg,
                             type: "success",
-                            showCancelButton: false
+                            allowOutsideClick: false
                         });
                         document.getElementById("textKey").value = "";
                         document.getElementById("textMemo").value = "";
@@ -104,8 +104,8 @@ function dellLocalStorage() {
 };
 //4.
 function allClearLocalStorage() {
-    const del = document.getElementById("allClear");
-    del.addEventListener("click",
+    const allClear = document.getElementById("allClear");
+    allClear.addEventListener("click",
         function (e) {
             e.preventDefault();
             let w_msg = "LocalStorageのデータをすべて削除（all clear）します。\nよろしいですか？";
@@ -192,7 +192,7 @@ function selectCheckBox(mode) {
 //localStrorage
 function viewStorage() {
     const list = document.getElementById("list");
-    list.innerHTML="";
+    list.innerHTML = "";
     //localStrorage table に追加
     for (let i = 0; i < localStorage.length; i++) {
         let w_key = localStorage.key(i);

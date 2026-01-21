@@ -43,13 +43,13 @@ function saveLocalStorage() {
 
         }, false);
 };
-//3. localStorageから１件削除
+//3. localStorageから n 件削除
 function dellLocalStorage() {
     const del = document.getElementById("del");
     del.addEventListener("click",
         function (e) {
             e.preventDefault();
-            let chkbox1 = document.getElementById("chkbox1");
+            const chkbox1 = document.getElementsByName("chkbox1");
             const table1 = document.getElementById("table1");
             let w_cnt = 0;
             w_cnt = selectCheckBox("del");
@@ -73,8 +73,8 @@ function dellLocalStorage() {
 }
 //4.
 function allClearLocalStorage() {
-    const del = document.getElementById("allClear");
-    del.addEventListener("click",
+    const allClear  = document.getElementById("allClear");
+    allClear.addEventListener("click",
         function (e) {
             e.preventDefault();
             let w_confirm = window.confirm("LocalStorageのデータをすべて削除（all clear）します。\nよろしいですか？");
@@ -140,7 +140,6 @@ function selectCheckBox(mode) {
 function viewStorage() {
     const list = document.getElementById("list");
     while (list.rows[0]) list.deleteRow(0);
-    //localStrorage
     for (let i = 0; i < localStorage.length; i++) {
         let w_key = localStorage.key(i);
         let tr = document.createElement("tr");
